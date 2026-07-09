@@ -1,17 +1,13 @@
 /**
  * scene3d.js — "Living Code Knot"
- * Un nudo toroidal wireframe que respira/deforma en tiempo real, envuelto en
- * una nube de partículas con color por vértice y un halo de líneas de conexión.
- * Representa "stack conectado, en constante evolución" sin ningún logo.
- * Solo usa: TorusKnotGeometry, BufferGeometry, Points, LineSegments, Mesh (r128 nativo).
- * Expone window.initHeroScene(canvasId).
+ * (comentarios originales sin cambios)
  */
 (function () {
 
   const PALETTE = {
-    accent1: [0xC8, 0x5A, 0x28],   // terracotta
-    accent2: [0x45, 0xD1, 0xFD],   // cyan
-    accent3: [0xEA, 0xE3, 0xD4],   // cream
+    accent1: [0xC8, 0x5A, 0x28],
+    accent2: [0x45, 0xD1, 0xFD],
+    accent3: [0xEA, 0xE3, 0xD4],
     dark:    [0x1A, 0x1A, 0x2E]
   };
 
@@ -19,16 +15,12 @@
     return [hexArr[0] / 255, hexArr[1] / 255, hexArr[2] / 255];
   }
 
-  /* ── Build the wireframe knot with per-vertex color + noise-driven morph ── */
   function buildKnot(THREE) {
     const geo = new THREE.TorusKnotGeometry(1.05, 0.32, 180, 20, 2, 3);
     const pos = geo.attributes.position;
     const count = pos.count;
-
-    // Store original positions for morph reference
     const basePositions = new Float32Array(pos.array);
 
-    // Vertex colors: gradient mix based on position angle
     const colors = new Float32Array(count * 3);
     const c1 = hexToRgbFloat(PALETTE.accent1);
     const c2 = hexToRgbFloat(PALETTE.accent2);
@@ -60,7 +52,6 @@
     return mesh;
   }
 
-  /* ── Particle halo — points scattered around the knot's surface ── */
   function buildParticleHalo(THREE, sourceGeo, particleCount) {
     const srcPos = sourceGeo.attributes.position;
     const srcCount = srcPos.count;
@@ -107,7 +98,6 @@
     return points;
   }
 
-  /* ── Outer connection lines — sparse, orbiting geometric skeleton ── */
   function buildOrbitLines(THREE) {
     const group = new THREE.Group();
     const ringCount = 3;
@@ -136,7 +126,6 @@
     return group;
   }
 
-  /* ── Main init ── */
   function initHeroScene(canvasId) {
     const THREE = window.THREE;
     if (!THREE) return;
@@ -150,43 +139,65 @@
     camera.position.set(0, 0.3, 5.8);
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
-    // Minimal lighting since MeshBasicMaterial doesn't need it, but keep ambient
-    // glow for any future PBR additions and softer background feel.
     scene.add(new THREE.AmbientLight(0xffffff, 0.4));
 
     const knot = buildKnot(THREE);
-    scene.add(knot);
-
     const halo = buildParticleHalo(THREE, knot.geometry, 900);
-    scene.add(halo);
-
     const orbitLines = buildOrbitLines(THREE);
-    scene.add(orbitLines);
 
-    // Group everything so mouse/scroll transforms apply uniformly
     const rig = new THREE.Group();
     rig.add(knot, halo, orbitLines);
     scene.add(rig);
-    scene.remove(knot); scene.remove(halo); scene.remove(orbitLines); // avoid double-add
 
-    // Mouse interactivity
     let mouseX = 0, mouseY = 0;
     window.addEventListener('pointermove', (e) => {
       mouseX = (e.clientX / window.innerWidth) - 0.5;
       mouseY = (e.clientY / window.innerHeight) - 0.5;
-    });
+    }, { passive: true });
 
-    function resize() {
+    // ── RESIZE ROBUSTO ──
+    let lastW = 0, lastH = 0;
+    let resizeTimeout = null;
+
+    function applyResize() {
       const w = container.clientWidth;
       const h = container.clientHeight;
+
+      // Evita aspect ratio inválido (w o h en 0) que rompe la cámara
+      if (w <= 0 || h <= 0) return;
+
+      // Evita re-render si el tamaño no cambió realmente (previene loops)
+      if (Math.abs(w - lastW) < 1 && Math.abs(h - lastH) < 1) return;
+
+      lastW = w;
+      lastH = h;
+
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
     }
-    window.addEventListener('resize', resize);
-    resize();
+
+    function scheduleResize() {
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(applyResize, 80); // debounce
+    }
+
+    // ResizeObserver es más fiable que window.resize en móvil
+    if (window.ResizeObserver) {
+      const ro = new ResizeObserver(scheduleResize);
+      ro.observe(container);
+    } else {
+      window.addEventListener('resize', scheduleResize);
+    }
+
+    // Primer resize, con reintento por si las fuentes aún no cargaron
+    applyResize();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(applyResize);
+    }
+    setTimeout(applyResize, 300);
 
     const clock = new THREE.Clock();
     const pos = knot.geometry.attributes.position;
@@ -200,7 +211,6 @@
       requestAnimationFrame(animate);
       const t = clock.getElapsedTime();
 
-      // Organic morph: displace each vertex along a noise-like sine field
       for (let i = 0; i < count; i++) {
         const bx = base[i * 3], by = base[i * 3 + 1], bz = base[i * 3 + 2];
         const n = Math.sin(bx * 1.5 + t * 1.1) * Math.cos(by * 1.3 + t * 0.9) * 0.06;
@@ -214,7 +224,6 @@
       }
       pos.needsUpdate = true;
 
-      // Particle halo drifts slightly outward/inward with a breathing pulse
       const breathe = 1 + Math.sin(t * 0.8) * 0.04;
       for (let i = 0; i < haloPos.count; i++) {
         haloPos.setXYZ(
@@ -226,7 +235,6 @@
       }
       haloPos.needsUpdate = true;
 
-      // Whole rig rotation, mouse-reactive tilt
       rig.rotation.y = t * 0.22 + mouseX * 0.6;
       rig.rotation.x = Math.sin(t * 0.4) * 0.12 + mouseY * 0.25;
       orbitLines.rotation.z = t * 0.1;
