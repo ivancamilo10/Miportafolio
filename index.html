@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivan Mejia Triana — Full Stack · Mobile · QA Engineer</title>
+<meta name="description" content="Portafolio de Ivan Mejia Triana — Full Stack, Mobile y QA Engineer en Barranquilla, Colombia. Co-fundador de Mins Solutions TI.">
+<meta name="theme-color" content="#0B2C5C">
+
+<!-- Open Graph / redes sociales -->
+<meta property="og:title" content="Ivan Mejia Triana — Full Stack · Mobile · QA Engineer">
+<meta property="og:description" content="Construyo software que funciona. Flutter, Node.js, React y QA. Co-fundador de Mins Solutions TI.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/og-cover.png">
+
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Archivo+Black&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- NAV -->
+<header class="nav">
+  <a href="#top" class="nav__logo">IVAN<span>.DEV</span></a>
+  <nav class="nav__links">
+    <a href="#about">Sobre mí</a>
+    <a href="#experience">Experiencia</a>
+    <a href="#skills">Habilidades</a>
+    <a href="#projects">Proyectos</a>
+    <a href="#interests">Intereses</a>
+    <a href="#contact">Contacto</a>
+  </nav>
+  <a class="nav__cta" href="mailto:ivantriana2005@gmail.com">Contáctame</a>
+  <button class="nav__burger" id="burger" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__copy">
+    <div class="tag">
+      <span class="tag__flag"></span>
+      Full Stack · Mobile · QA Engineer · Barranquilla, CO
+    </div>
+    <h1 class="hero__title">
+      Construyo<br>software<span class="accent">.dev</span><br>que funciona.
+    </h1>
+    <p class="hero__sub">
+      Tecnólogo en Análisis y Desarrollo de Software con +2 años dominando
+      Flutter, Node.js, React y automatización QA. Diseño, construyo y pruebo —
+      el ciclo completo, en un solo perfil. Co-fundador de
+      <a href="https://www.minssolutionsti.dev/" target="_blank" rel="noopener" class="hero__link">Mins Solutions TI</a>.
+    </p>
+    <div class="hero__actions">
+      <a href="#projects" class="btn btn--primary">Ver proyectos</a>
+      <a href="https://www.minssolutionsti.dev/" target="_blank" rel="noopener" class="btn btn--ghost">Mins Solutions TI ↗</a>
+    </div>
+    <div class="hero__stats">
+      <div><strong>2+</strong><span>años de experiencia</span></div>
+      <div><strong>3</strong><span>stacks dominados</span></div>
+      <div><strong>B1</strong><span>inglés técnico</span></div>
+    </div>
+  </div>
+
+  <div class="hero__stage">
+    <div class="profile-card">
+      <div class="profile-card__photo-wrap">
+        <img src="img/fotoo.png" alt="Ivan Mejia Triana" class="profile-card__photo">
+        <span class="profile-card__status">
+          <span class="dot dot--online"></span> Disponible
+        </span>
+      </div>
+      <div class="profile-card__info">
+        <h3>Ivan Mejia Triana</h3>
+        <p>Full Stack · Mobile · QA Engineer</p>
+        <div class="profile-card__tags">
+          <span>Flutter</span><span>Node.js</span><span>React</span><span>QA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-card stage-card--compact">
+      <div class="stage-card__badge">
+        <svg viewBox="0 0 24 24" width="14" height="14">
+          <path fill="currentColor" d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z"/>
+        </svg>
+        three.js
+      </div>
+      <canvas id="robot-canvas"></canvas>
+    </div>
+  </div>
+</section>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section__head">
+    <span class="eyebrow">Perfil</span>
+    <h2>De QA a Full Stack, sin perder de vista la calidad.</h2>
+  </div>
+  <div class="about__grid">
+    <p class="about__text">
+      Especialista en <strong>Flutter/Dart</strong> y <strong>Node.js</strong> con base sólida
+      en JavaScript, backend y bases de datos relacionales. Experiencia real en automatización de
+      pruebas (<strong>Cypress, Playwright, Serenity BDD</strong>), integración de APIs REST y
+      metodologías ágiles. Co-fundador de
+      <a href="https://www.minssolutionsti.dev/" target="_blank" rel="noopener"><strong>Mins Solutions TI</strong></a>,
+      empresa de desarrollo de software con sede en Colombia.
+      Orientado a resultados, con autonomía técnica para tomar decisiones de arquitectura y de
+      calidad al mismo tiempo.
+    </p>
+    <div class="about__cards">
+      <div class="mini-card">
+        <span class="mini-card__icon">🏢</span>
+        <h3>Mins Solutions TI</h3>
+        <p>Co-fundador · <a href="https://www.minssolutionsti.dev/" target="_blank" rel="noopener">minssolutionsti.dev</a></p>
+      </div>
+      <div class="mini-card">
+        <span class="mini-card__icon">🎓</span>
+        <h3>Ingeniería de Sistemas</h3>
+        <p>Corporación Universitaria Americana · 2025 – en curso</p>
+      </div>
+      <div class="mini-card">
+        <span class="mini-card__icon">📍</span>
+        <h3>Barranquilla, Colombia</h3>
+        <p>Disponible remoto (Colombia / internacional) o presencial</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section section--dark" id="skills">
+  <div class="section__head">
+    <span class="eyebrow eyebrow--light">Stack</span>
+    <h2>Herramientas que uso todos los días.</h2>
+  </div>
+  <div class="skills__grid">
+
+    <div class="skill-card">
+      <span class="skill-card__icon">
+        <svg viewBox="0 0 24 24" width="22" height="22">
+          <path fill="currentColor" d="M14.5 2H5L12 9h9.5L14.5 2zM5 22l7-7-7-7v14z"/>
+        </svg>
+      </span>
+      <h3>Mobile &amp; Flutter</h3>
+      <p>Flutter / Dart — apps multiplataforma, state management (Provider, Riverpod), integración nativa</p>
+    </div>
+
+    <div class="skill-card">
+      <span class="skill-card__icon">
+        <svg viewBox="0 0 24 24" width="22" height="22">
+          <path fill="currentColor" d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="3" fill="currentColor"/>
+        </svg>
+      </span>
+      <h3>Frontend</h3>
+      <p>React, Angular, TypeScript, Astro, HTML5, CSS3, Tailwind — interfaces responsivas y accesibles</p>
+    </div>
+
+    <div class="skill-card">
+      <span class="skill-card__icon">
+        <svg viewBox="0 0 24 24" width="22" height="22">
+          <rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M3 9h18M8 13h4" stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+      </span>
+      <h3>Backend &amp; Datos</h3>
+      <p>Node.js, NestJS, Express, Python, PHP, PostgreSQL, MySQL, Prisma ORM, APIs REST &amp; GraphQL</p>
+    </div>
+
+    <div class="skill-card">
+      <span class="skill-card__icon">
+        <svg viewBox="0 0 24 24" width="22" height="22">
+          <path fill="none" stroke="currentColor" stroke-width="1.8" d="M4 12a8 8 0 0 1 14.9-4M20 12a8 8 0 0 1-14.9 4"/>
+          <path fill="currentColor" d="M18 4l1 4-4-1zM6 20l-1-4 4 1z"/>
+        </svg>
+      </span>
+      <h3>QA &amp; Automatización</h3>
+      <p>Cypress, Playwright, Selenium, Serenity BDD, Postman, JMeter, Gherkin / BDD</p>
+    </div>
+
+    <div class="skill-card skill-card--wide">
+      <span class="skill-card__icon">
+        <svg viewBox="0 0 24 24" width="22" height="22">
+          <circle cx="12" cy="12" r="3" fill="currentColor"/>
+          <path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8"/>
+        </svg>
+      </span>
+      <h3>DevOps · IA · Otros</h3>
+      <p>Git / GitHub, Docker (básico), CI/CD, Scrum, Kanban, integración de LLMs, diseño de chatbots, UI/UX, Django</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section__head">
+    <span class="eyebrow">Trayectoria</span>
+    <h2>Experiencia laboral</h2>
+  </div>
+
+  <div class="timeline">
+
+    <article class="timeline__item timeline__item--highlight">
+      <div class="timeline__marker"></div>
+      <div class="timeline__content">
+        <div class="timeline__meta">
+          <h3>Co-Fundador &amp; Lead Developer</h3>
+          <span class="timeline__date">2025 – Presente</span>
+        </div>
+        <p class="timeline__org">
+          <a href="https://www.minssolutionsti.dev/" target="_blank" rel="noopener">Mins Solutions TI</a>
+          · Colombia
+        </p>
+        <ul>
+          <li>Co-fundación y dirección técnica de empresa de software enfocada en desarrollo web, mobile y soluciones empresariales.</li>
+          <li>Arquitectura y desarrollo de productos propios y a medida para clientes en Colombia.</li>
+          <li>Stack principal: Flutter, Node.js, NestJS, React, PostgreSQL y automatización QA.</li>
+          <li>Gestión de equipos pequeños, estimación de proyectos y trato directo con clientes.</li>
+        </ul>
+        <a href="https://www.minssolutionsti.dev/" target="_blank" rel="noopener" class="timeline__cta">
+          Visitar sitio web ↗
+        </a>
+      </div>
+    </article>
+
+    <article class="timeline__item">
+      <div class="timeline__marker"></div>
+      <div class="timeline__content">
+        <div class="timeline__meta">
+          <h3>QA Analyst</h3>
+          <span class="timeline__date">Ago 2025 – Feb 2026 · 7 meses</span>
+        </div>
+        <p class="timeline__org">GBM · Barranquilla, Colombia</p>
+        <ul>
+          <li>Análisis, diseño y ejecución de pruebas funcionales, de regresión e integración en software empresarial.</li>
+          <li>Automatización end-to-end con Cypress, Playwright y Serenity BDD.</li>
+          <li>Desarrollo de helpers en JavaScript para datos de prueba dinámicos y validación de respuestas REST.</li>
+          <li>Documentación de casos de prueba y reporte de defectos con seguimiento hasta resolución.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="timeline__item">
+      <div class="timeline__marker"></div>
+      <div class="timeline__content">
+        <div class="timeline__meta">
+          <h3>Full Stack Developer</h3>
+          <span class="timeline__date">Sep 2023 – Feb 2025 · 1 año 6 meses</span>
+        </div>
+        <p class="timeline__org">SENA · Barranquilla, Colombia</p>
+        <ul>
+          <li>Desarrollo de apps móviles con Flutter/Dart: base de datos, lógica de negocio y despliegue.</li>
+          <li>Interfaces web responsivas con HTML5, CSS3 y JavaScript ES6+.</li>
+          <li>Integración de APIs REST en frontend y Node.js en backend.</li>
+          <li>Backend con Ruby on Rails y Node.js: arquitectura y endpoints REST.</li>
+          <li>Automatización de scripts en Python para procesamiento de datos.</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="certs">
+    <h3>Certificaciones</h3>
+    <div class="certs__grid">
+      <span>AI Literacy — IBM (mar. 2026)</span>
+      <span>Blockchain: Contratos Inteligentes — SENA (dic. 2025)</span>
+      <span>Calidad en el Desarrollo de Software — SENA (dic. 2025)</span>
+      <span>Database Design Fundamentals for Software Engineers — Educative (jun. 2026)</span>
+      <span>Pragmatic Unit Testing in Java 8 with JUnit — Educative (jun. 2026)</span>
+      <span>AI Skills Fest 2026 — Microsoft (jun. 2026)</span>
+      <span>Gen AI Avanzado — Nequi (mar. 2026)</span>
+      <span>Fundamentos de Nube (AWS) — Nequi (mar. 2026)</span>
+      <span>Testing Academy — Automatización de Pruebas</span>
+      <span>Essentials Automation Certification 2024</span>
+      <span>EF SET English — B1 Intermedio (48/100)</span>
+      <span>Habilidades Interpersonales — Coursera</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section section--dark" id="projects">
+  <div class="section__head">
+    <span class="eyebrow eyebrow--light">Laboratorio</span>
+    <h2>Proyectos destacados</h2>
+  </div>
+  <div class="projects__grid">
+
+    <article class="project-card project-card--featured">
+      <div class="project-card__top">
+        <span class="project-card__tag">Empresa · Mins Solutions TI</span>
+        <a href="https://www.minssolutionsti.dev/" target="_blank" rel="noopener" class="project-card__link">↗</a>
+      </div>
+      <h3>Mins Solutions TI</h3>
+      <p>Empresa de desarrollo de software co-fundada. Desarrollo de productos web y mobile a medida,
+      automatización QA y soluciones para clientes en Colombia.</p>
+      <div class="project-card__stack">
+        <span>Flutter</span><span>Node.js · NestJS</span><span>React</span><span>PostgreSQL</span>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-card__top">
+        <span class="project-card__tag">Mobile · Full Stack</span>
+      </div>
+      <h3>PÍNTALO</h3>
+      <p>App educativa estilo feed tipo TikTok: onboarding con diagnóstico, análisis de estado emocional
+      y recomendación de contenido personalizada, con gamificación.</p>
+      <div class="project-card__stack">
+        <span>React / TypeScript</span><span>Node.js · Express</span><span>PostgreSQL · Prisma</span>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-card__top">
+        <span class="project-card__tag">PHP · Backend</span>
+      </div>
+      <h3>Software para Gimnasio</h3>
+      <p>Sistema de gestión para gimnasios: control de socios, membresías y pagos, con panel
+      administrativo construido a medida.</p>
+      <div class="project-card__stack">
+        <span>PHP</span><span>CSS</span><span>JavaScript</span>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-card__top">
+        <span class="project-card__tag">PHP · Plataforma web</span>
+      </div>
+      <h3>Red Emprende Caribe</h3>
+      <p>Plataforma web para una red de emprendimiento de la región Caribe: gestión de contenido
+      y conexión entre emprendedores.</p>
+      <div class="project-card__stack">
+        <span>PHP</span><span>CSS</span><span>JavaScript</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- INTERESES / DEPORTES — plus profesional -->
+<section class="section interests" id="interests">
+  <div class="section__head">
+    <span class="eyebrow">Fuera del código</span>
+    <h2>Lo que me mantiene enfocado y con energía.</h2>
+  </div>
+  <div class="interests__grid">
+
+    <article class="interest-card">
+      <span class="interest-card__icon">⚾</span>
+      <h3>Béisbol</h3>
+      <p>Sigo la temporada de cerca — disciplina y estrategia que también aplico al desarrollo de software.</p>
+    </article>
+
+    <article class="interest-card">
+      <span class="interest-card__icon">⚽</span>
+      <h3>Fútbol</h3>
+      <p>Juego y veo partidos regularmente; el trabajo en equipo del campo se traduce directo al trabajo en equipos de desarrollo.</p>
+    </article>
+
+    <article class="interest-card">
+      <span class="interest-card__icon">🏋️</span>
+      <h3>Gimnasio</h3>
+      <p>Entrenamiento constante como hábito de disciplina — la misma constancia que aplico para aprender nuevas tecnologías.</p>
+    </article>
+
+    <article class="interest-card">
+      <span class="interest-card__icon">🎮</span>
+      <h3>Gaming</h3>
+      <p>FC25 y Resident Evil en mis ratos libres — buena forma de desconectar entre sesiones de código.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="contact__box">
+    <span class="eyebrow">Contacto</span>
+    <h2>¿Un proyecto en mente?<br>Hablemos.</h2>
+    <p>Abierto a roles de QA Analyst, Full Stack o Mobile Developer —
+    remoto o en Barranquilla. También puedes conocer mi empresa:
+    <a href="https://www.minssolutionsti.dev/" target="_blank" rel="noopener">Mins Solutions TI</a>.</p>
+    <div class="contact__links">
+      <a href="mailto:ivantriana2005@gmail.com">ivantriana2005@gmail.com</a>
+      <a href="https://www.minssolutionsti.dev/" target="_blank" rel="noopener">minssolutionsti.dev</a>
+      <a href="https://github.com/ivancamilo10" target="_blank" rel="noopener">github.com/ivancamilo10</a>
+      <a href="https://linkedin.com/in/ivanmejiatriana-15789b290" target="_blank" rel="noopener">linkedin.com/in/ivanmejiatriana</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <span>© 2026 Ivan Mejia Triana</span>
+  <span>
+    Co-fundador de
+    <a href="https://www.minssolutionsti.dev/" target="_blank" rel="noopener">Mins Solutions TI</a>
+    · Barranquilla, Colombia
+  </span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/scene3d.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
